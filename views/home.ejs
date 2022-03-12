@@ -1,0 +1,43 @@
+<%- include('layouts/header'); -%>
+<body>
+    <h1>All Recipes</h1>
+    <nav>
+        <ul>
+            <li><a href="/">View Recipes</a></li>
+            <li><a href="/form">Add Recipe</a></li>
+        </ul>
+    </nav>
+    <main class="indexmain">
+        <h1>Third Times the Charm! - An Iterative Recipe Builder!</h1>
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                         <th>Title</th>
+                         <th>Recipe Steps</th>  
+                         <th>Image</th>
+                         <th>Comments</th>  
+                         <th>Delete</th>   
+                         <th>Edit</th>          
+                     </tr>
+                </thead>
+                <tbody>
+                     <% for(var recipe of recipes){
+                             %>
+                                 <tr>
+                                     <td><%= recipe.recipetitle %></td>                            
+                                     <td><%- recipe.recipesteps %></td> 
+                                     <td><img src="uploads/<%=recipe.recipeimage%>" alt="<%=recipe.recipeimage%>" style="width:350px; height: 225px;"></td>
+                                     <td><%- recipe.recipecomment %></td> 
+                                     <td><a href="/delete/<%= recipe._id %>">Delete</a></td>
+                                     <td><a href="/edit/<%= recipe._id %>">Edit</a></td>
+                                </tr>
+                             <%
+                         }
+                         %>
+                </tbody>
+            </table>
+         </section>
+    </main>
+</body>
+<%- include('layouts/footer'); -%>

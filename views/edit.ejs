@@ -1,0 +1,49 @@
+<%- include('layouts/header'); -%>
+<body>
+    <h1>Add Post Page!</h1>
+    <%- include('layouts/nav'); -%>
+    <main>
+        <form class="postform" method="POST" enctype="multipart/form-data">
+            <div class="inputs">
+                <label for="recipetitle">Recipe Title</label>
+                <input type="text" id="recipetitle" name="recipetitle" placeholder="Recipe title" value="<%= recipe.recipetitle %>">
+              </div>
+            <div class="inputs">
+              <label for="image">Recipe Image</label>
+              <input type="file" id="image" name="image" placeholder="select image" value="<%= recipe.recipeimage %>">
+            </div>
+            <div class="inputs">
+                <label for="recipesteps">Recipe Steps</label>
+                <textarea id="recipesteps" name="recipesteps"><%= recipe.recipesteps %></textarea>
+              </div>
+              <div class="inputs">
+                <label for="recipecomment">Comments</label>
+                <textarea id="recipecomment" name="recipecomment"><%= recipe.recipecomment %></textarea>
+              </div>
+
+            <div class="formData">
+                <%
+                  if(typeof(errors) != 'undefined'){
+                    for(var error of errors){
+                    %>
+                      <p class="errors"><%= error.msg %></p>
+                    <%
+                    }
+                  }
+                %>
+                <%
+                  if(typeof(posttitle) != 'undefined'){
+                    %>
+                    <p class="psuccess" id="formResult">Recipe Updated successfully.</p>
+                    <%
+                  }
+                %>
+              </div>
+
+            <div class="submit">
+              <button type="submit">Submit</button>
+            </div>
+          </form>
+    </main>
+</body>
+<%- include('layouts/footer'); -%>

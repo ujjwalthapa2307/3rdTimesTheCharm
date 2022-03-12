@@ -1,0 +1,18 @@
+{
+  "name": "third-times-the-charm-project",
+  "version": "1.0.0",
+  "description": "iterative recipe builder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Team Alpha",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-fileupload": "^1.3.1",
+    "express-validator": "^6.14.0",
+    "mongoose": "^6.2.5"
+  }
+}

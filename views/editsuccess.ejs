@@ -1,0 +1,53 @@
+<%- include('layouts/header'); -%>
+<body>
+  <%- include('layouts/nav'); -%>
+<section>
+  <div class="formData">
+    <%
+    if(typeof(errors) != 'undefined'){
+      for(var error of errors){
+      %>
+        <p class="errors"><%= error.msg %></p>
+      <%
+      }
+    }
+  %>
+  <%
+    if(typeof(errors) == 'undefined'){
+      %>
+        <p class="postupdate" id="formResult">Congratulations! Recipe updated.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Recipe Steps</th>  
+                    <th>Image</th>
+                    <th>Comments</th>     
+                 </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><%= recipetitle %></td>                            
+                <td><%- recipesteps %></td> 
+                <td><img src="uploads/<%=recipeimage%>" alt="<%=recipeimage%>" style="width:350px; height: 225px;"></td>
+                <td><%- recipecomment %></td> 
+            </tr>
+            </tbody>
+        </table>
+        <%
+      }
+    %>
+    
+  </div>
+</section>
+<div class="clear"></div>
+</body>
+<%- include('layouts/footer'); -%>
+
+
+
+
+
+
+
+
