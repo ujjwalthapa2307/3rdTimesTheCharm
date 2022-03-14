@@ -2,12 +2,12 @@
 <body>
   <%- include('layouts/nav'); -%>
 <section>
-  <div class="formData">
+  <div>
     <%
     if(typeof(errors) != 'undefined'){
       for(var error of errors){
       %>
-        <p class="errors"><%= error.msg %></p>
+        <p><%= error.msg %></p>
       <%
       }
     }
@@ -15,7 +15,7 @@
   <%
     if(typeof(errors) == 'undefined'){
       %>
-        <p class="postupdate" id="formResult">Congratulations! Recipe updated.</p>
+        <p>Congratulations! Recipe updated.</p>
         <table>
             <thead>
                 <tr>
@@ -40,7 +40,7 @@
     
   </div>
 </section>
-<div class="clear"></div>
+<div></div>
 </body>
 <%- include('layouts/footer'); -%>
 
