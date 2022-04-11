@@ -23,6 +23,7 @@
                                             <th>Comments</th>
                                             <th>Delete</th>
                                             <th>Edit</th>
+                                            <th>PDF</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -42,6 +43,7 @@
                                                 </td>
                                                 <td><a href="/delete/<%= recipe._id %>">Delete</a></td>
                                                 <td><a href="/edit/<%= recipe._id %>">Edit</a></td>
+                                                <td><a href="/pdf/<%=recipe._id %>">Download</a></td>
                                             <% } %>
                                             </tr>
                                     </tbody>
