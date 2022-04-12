@@ -1,0 +1,65 @@
+<%- include('layouts/header'); -%>
+    <%- include('layouts/nav'); -%>
+        <%- include('layouts/sub_header'); -%>
+
+            <body id="page-top">
+                <div id="table_body">
+                    <div class="container-xl">
+                        <div class="table-responsive">
+                            <div class="table-wrapper">
+                                <div class="table-title">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <h2>Manage <b>Recipes</b></h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>Recipe Steps</th>
+                                            <th>Image</th>
+                                            <th>Comments</th>
+                                            <th>Delete</th>
+                                            <th>Edit</th>
+                                            <th>PDF</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      <% for(var recipe of recipes){
+                                          if(recipe.recipetitle==rtitle){
+                                          %>
+                                      <tr>
+                                          <td><% if(recipe.recipeMain){%>Original: <%}%><%=recipe.recipetitle %></td>                            
+                                          <td><%-recipe.recipesteps %></td> 
+                                          <td><img src="../uploads/<%=recipe.recipeimage%>" alt="<%=recipe.recipeimage%>" style="width:350px; height: 225px;"></td>
+                                          <td><%-recipe.recipecomment %></td> 
+                                          <td><a href="/delete/<%=recipe._id %>">Delete</a></td>
+                                          <td><a href="/edit/<%=recipe._id %>">Edit</a></td>
+                                          <td><a href="/pdf/<%=recipe._id %>">Download</a></td>
+                                     </tr>
+                                     <%
+                                    }
+                                  }
+                               %>
+                                  </tbody>
+                                </table>
+                                <div class="clearfix">
+                                    <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+                                    <ul class="pagination">
+                                        <li class="page-item disabled"><a href="#">Previous</a></li>
+                                        <li class="page-item"><a href="#" class="page-link">1</a></li>
+                                        <li class="page-item"><a href="#" class="page-link">2</a></li>
+                                        <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                                        <li class="page-item"><a href="#" class="page-link">4</a></li>
+                                        <li class="page-item"><a href="#" class="page-link">5</a></li>
+                                        <li class="page-item"><a href="#" class="page-link">Next</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </body>
+            <%- include('layouts/footer'); -%>
