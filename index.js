@@ -115,8 +115,9 @@ myApp.get('/pdf/:recipeid', (req, res, next) => {
 
 //home page
 myApp.get('/', function (req, res) {
+    var passedVariable = req.query.statusMessage;
     Recipe.find({}).exec(function (err, recipes) {
-        res.render('home', { recipes: recipes });
+        res.render('home', { recipes: recipes,statusMessage:passedVariable});
     });
 });
 
@@ -173,7 +174,9 @@ myApp.post('/form', [
             res.render('home', {recipes: recipes,statusMessage:statusMessage});
         }); */
 
-        res.render('form', pageData);
+        //res.render('form', pageData);
+        var string = encodeURIComponent('Recipe Stored Successfully!');
+        res.redirect('/?statusMessage=' + string); 
     }
 });
 
@@ -211,10 +214,14 @@ myApp.get('/delete/:recipeid', function(req, res){
             }
             
           if(recipe){
-                res.render('delete', {message: 'Successfully deleted!'});
+               // res.render('delete', {message: 'Successfully deleted!'});
+               var string = encodeURIComponent('Successfully deleted!');
+               res.redirect('/?statusMessage=' + string); 
             }
             else{
-                res.render('delete', {message: 'Sorry, could not delete!'});
+                //res.render('delete', {message: 'Sorry, could not delete!'});
+                var string = encodeURIComponent('Sorry, could not delete!');
+                res.redirect('/?statusMessage=' + string); 
             }  
         }); 
 });
@@ -288,7 +295,9 @@ myApp.post('/edit/:id', [
             recipe.recipecomment= recipecomment;
             recipe.save();     
         });
-        res.render('editsuccess', pageData);
+        //res.render('editsuccess', pageData);
+        var string = encodeURIComponent('Congratulations! Recipe updated.');
+        res.redirect('/?statusMessage=' + string); 
     }
 });
 
@@ -384,7 +393,10 @@ myApp.post('/addversion/:recipeid', [
             console.log('New Version saved');
         });
 
-        res.render('editsuccess', pageData);
+        //res.render('editsuccess', pageData);
+        var string = encodeURIComponent('Version added Successfully!');
+        res.redirect('/?statusMessage=' + string); 
+
     }
 });
 

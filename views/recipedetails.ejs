@@ -31,7 +31,7 @@
                                           if(recipe.recipetitle==rtitle){
                                           %>
                                       <tr>
-                                          <td><% if(recipe.recipeMain){%>Original: <%}%><%=recipe.recipetitle %></td>                            
+                                          <td><%if(recipe.recipeMain){%>Original: <%}%><%=recipe.recipetitle %></td>                            
                                           <td><%-recipe.recipesteps %></td> 
                                           <td><img src="../uploads/<%=recipe.recipeimage%>" alt="<%=recipe.recipeimage%>" style="width:350px; height: 225px;"></td>
                                           <td><%-recipe.recipecomment %></td> 
@@ -45,6 +45,7 @@
                                %>
                                   </tbody>
                                 </table>
+                                <!--
                                 <div class="clearfix">
                                     <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
                                     <ul class="pagination">
@@ -57,6 +58,7 @@
                                         <li class="page-item"><a href="#" class="page-link">Next</a></li>
                                     </ul>
                                 </div>
+                                -->
                             </div>
                         </div>
                     </div>
